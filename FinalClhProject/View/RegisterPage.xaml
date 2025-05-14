@@ -1,0 +1,102 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalClhProject.Views.RegisterPage"
+             Title="Register">
+
+    <Grid>
+        <Image Source="dotnet_bot.png"
+               Aspect="AspectFill"
+               Opacity="0.25"
+               IsOpaque="True"
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill" />
+
+
+        <ScrollView>
+            <VerticalStackLayout Padding="20"
+                                 Spacing="12"
+                                 VerticalOptions="Center"
+                                 HorizontalOptions="Center"
+                                 WidthRequest="320">
+
+                <Label Text="First Name" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 6"
+                        BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                        Padding="8">
+                    <Entry Text="{Binding FirstName}" 
+                           Placeholder="Enter first name"
+                           TextColor="{DynamicResource LabelTextColor}" 
+                           PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                           BackgroundColor="Transparent"
+                           HeightRequest="50" />
+                </Border>
+
+                <Label Text="Last Name" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 6"
+                        BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                        Padding="8">
+                    <Entry Text="{Binding LastName}" 
+                           Placeholder="Enter last name"
+                           TextColor="{DynamicResource LabelTextColor}" 
+                           PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                           BackgroundColor="Transparent"
+                           HeightRequest="50" />
+                </Border>
+
+                <Label Text="Email" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 6"
+                        BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                        Padding="8">
+                    <Entry Text="{Binding Email}" 
+                           Placeholder="Enter email"
+                           Keyboard="Email"
+                           TextColor="{DynamicResource LabelTextColor}" 
+                           PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                           BackgroundColor="Transparent"
+                           HeightRequest="50" />
+                </Border>
+
+                <Label Text="Password" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 6"
+                        BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                        Padding="8">
+                    <Entry Text="{Binding Password}" 
+                           Placeholder="Enter password" 
+                           IsPassword="True"
+                           TextColor="{DynamicResource LabelTextColor}" 
+                           PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                           BackgroundColor="Transparent"
+                           HeightRequest="50" />
+                </Border>
+
+                <Button Text="Register" 
+                        Command="{Binding RegisterCommand}" 
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
+                        TextColor="{DynamicResource LabelTextColor}" 
+                        HeightRequest="50" 
+                        CornerRadius="25" />
+
+                <Label Text="Or" 
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <Button Text="Sign up with Google" 
+                        Clicked="OnGoogleSignInButtonClicked"
+                        BackgroundColor="{DynamicResource ButtonBackgroundColor}" 
+                        TextColor="{DynamicResource LabelTextColor}" 
+                        HeightRequest="50" 
+                        CornerRadius="25" />
+
+                <Label Text="{Binding StatusMessage}" TextColor="Red" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

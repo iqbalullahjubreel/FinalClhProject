@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:FinalClhProject.ViewModel"
+    x:Class="FinalClhProject.Views.DirtyRizzPage"
+    BackgroundColor="{DynamicResource PageBackgroundBrush}">
+
+    
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                <Button Text="Home"
+                        BackgroundColor="Blue"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnGoToHomeAsync"
+                        HorizontalOptions="End" />
+
+                <Button Text="Logout"
+                        BackgroundColor="Red"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnLogoutAsync"
+                        HorizontalOptions="End" />
+                <Button Text="Settings"
+                        BackgroundColor="Blue"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnGoToSettingsAsync"
+                        HorizontalOptions="End" />
+            </HorizontalStackLayout>
+            <Frame
+                BorderColor="Black"
+                CornerRadius="15"
+                BackgroundColor="#fff0f5"
+                WidthRequest="350"
+                HeightRequest="350"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Padding="15"
+                HasShadow="True">
+
+                <ScrollView>
+                    <CollectionView ItemsSource="{Binding RizzLines}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="#dc3977"
+                                       CornerRadius="12"
+                                       Padding="10"
+                                       Margin="5">
+                                    <Label Text="{Binding .}" TextColor="White" FontSize="14"/>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+            </Frame>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+
+                <Button Text="🔥 Normal Rizz Lines"
+                        Command="{Binding GenerateNormalCommand}"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        CornerRadius="25"
+                        Padding="15,10"
+                        WidthRequest="160" />
+
+                <Button Text="🔥 Flirty Rizz-Lines"
+                        Command="{Binding GenerateDirtyCommand}"
+                        BackgroundColor="Black"
+                        TextColor="White"
+                        CornerRadius="25"
+                        Padding="15,10"
+                        WidthRequest="160" />
+
+            </HorizontalStackLayout>
+
+
+            <Label Text="{Binding ChatCredit, StringFormat='Chat Credit: {0}'}"
+                   FontAttributes="Italic"
+                   HorizontalOptions="Center"
+                   TextColor="Gray" />
+
+            <Label Text="Jobbs AI Dating Tool"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   TextColor="Gray"
+                   FontAttributes="Bold" />
+
+            <Grid ColumnDefinitions="1*, 2*" ColumnSpacing="10">
+                <Image Source="bing_shot6.png"
+                        HeightRequest="300"
+                        WidthRequest="1000"
+                        Aspect="AspectFit"
+                        Grid.Column="0" />
+                <Label Text="💌 What is Jobbs Lines AI Generator?&#10;&#10;Jobbs Lines AI Generator is an innovative tool that leverages artificial intelligence to create engaging and personalized RIZZ Lines, helping users enhance their dating interactions. Whether you're looking for the perfect pickup line or a conversation starter, this generator provides tailored suggestions to boost your confidence and success in dating."
+                        Grid.Column="1"
+                       Style="{StaticResource BodyLabelStyle}"
+                        HorizontalOptions="Center"
+                        TextColor="{DynamicResource LabelTextColor}"
+                        LineBreakMode="WordWrap"
+                        FontSize="14"/>
+
+            </Grid>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Enhance Your Dating Experience with RIZZ Line"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="In the dynamic world of dating, standing out can be challenging. That's where RIZZ Line comes in, an innovative feature of the JOBBS AI platform designed to empower your dating game. By leveraging cutting-edge AI technology, RIZZ Line generates captivating and personalized pickup lines that resonate with your unique style and the preferences of your potential matches."
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Why Choose RIZZ Line?"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="In the fast-paced dating scene, first impressions are everything. RIZZ Line helps you make a memorable impact right from the start Our AI-driven tool crafts lines that not only break the ice but also spark meaningful conversations. Whether you're shy, busy, or simply looking for fresh ideas, RIZZ Line offers the perfect solution to engage with confidence and charm."
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Real-Life Scenarios Where RIZZ Line Shines"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Imagine you're about to send a message to someone new on a dating app. You want to be witty and intriguing but words escape you. With RIZZ Line, you can generate a selection of lines tailored to your match's profile, interests, and your own personality. From playful banter to thoughtful compliments, RIZZ Line ensures your messages stand out. Consider a scenario where you're preparing for a first date. You want to keep the conversation lively and engaging. RIZZ Line provides you with conversation starters that are not only relevant but also personalized to keep the dialogue flowing smoothly, helping you create a memorable connection."
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15">
+                <Label Text="How RIZZ Line Elevates Your Communication"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Effective communication is key to successful dating. RIZZ Line enhances your ability to connect by offering lines that are not only creative but also contextually aware. Our AI analyzes various factors such as trending topics, cultural nuances, and individual preferences, ensuring your lines are both timely and impactful. Moreover, RIZZ Line adapts to feedback, learning from your interactions to continuously improve its suggestions. This personalized approach means that the more you use RIZZ Line, the better it becomes at understanding your style and the types of responses that work best for you."
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Success Stories with RIZZ Line"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Many users have transformed their dating experiences with RIZZ Line. Take Feyisayo, for example, who struggled with starting conversations on dating apps. With RIZZ Line, she found herself more confident and received positive feedback from her matches, leading to more engaging and successful interactions. Then there's Basit, who used RIZZ Line to prepare for his dates. The personalized lines and conversation starters helped him feel at ease and focus on enjoying the moment, resulting in more meaningful connections and a thriving dating life."
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Frequently QA About Rizz Lines AI Generator"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="The following are some common usage questions about RIZZ AI. If you can't find what you're looking for, please contact our email"
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Q: How does RIZZ Line generate personalized pickup lines?"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="A: RIZZ Line uses advanced AI algorithms to analyze user profiles, preferences, and trending topics. By leveraging this data, it crafts pickup lines that are tailored to resonate with both you and your potential matches, ensuring a unique and engaging approach."
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Q: Can RIZZ Line be used for all types of dating platforms?"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="A: Yes, RIZZ Line is versatile and can be used across various dating platforms, whether you are communicating through apps, websites, or social media. It adapts to different contexts to provide suitable and effective pickup lines."
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Q: Is RIZZ Line suitable for people who are shy or new to dating?"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="A: Absolutely! RIZZ Line is designed to help anyone, regardless of their experience level. It provides creative and confidence-boosting lines that make it easier for shy individuals or dating newcomers to start and maintain engaging conversations."
+                        Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Q: How does RIZZ Line ensure the lines are appropriate and respectful?"
+                         Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="A: RIZZ Line prioritizes respectful and appropriate communication by using AI that considers cultural nuances and social norms. It continuously learns from user feedback to improve and ensure the lines are both suitable and well-received."
+                         Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <Label Text="Contact Information: iqbalullahj@gmail.com"
+                    FontAttributes="Italic"
+                    TextColor="DarkBlue"
+                    HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

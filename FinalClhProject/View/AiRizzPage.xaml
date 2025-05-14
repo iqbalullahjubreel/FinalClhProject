@@ -1,0 +1,256 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FinalClhProject.ViewModel"
+             xmlns:conv="clr-namespace:FinalClhProject.Converters"
+             x:Class="FinalClhProject.Views.AiRizzPage"
+             BackgroundColor="{DynamicResource PageBackgroundBrush}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conv:RoleToColorConverter x:Key="RoleToColorConverter" />
+            <conv:RoleToPositionConverter x:Key="RoleToPositionConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                <Button Text="Home"
+                        BackgroundColor="Blue"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnGoToHomeAsync"
+                        HorizontalOptions="End" />
+
+                <Button Text="Logout"
+                        BackgroundColor="Red"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnLogoutAsync"
+                        HorizontalOptions="End" />
+                <Button Text="Settings"
+                        BackgroundColor="Blue"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnGoToSettingsAsync"
+                        HorizontalOptions="End" />
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="RIZZ AI Chat With Manual text"
+                       TextColor="{DynamicResource LabelTextColor}"
+                       Style="{StaticResource HeaderLabelStyle}"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Manually enter the chat history and RIZZ AI Chat will provide reply suggestions"
+                       TextColor="{DynamicResource LabelTextColor}"
+                       Style="{StaticResource SubheaderLabelStyle}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Chat UI Centered -->
+            <Frame CornerRadius="15"
+                   BorderColor="Black"
+                   Padding="15"
+                   HeightRequest="500"
+                   BackgroundColor="#fff0f5"
+                   HasShadow="True"
+                   WidthRequest="700"
+                   HorizontalOptions="Center">
+                <Grid>
+                    <CollectionView ItemsSource="{Binding ChatHistory}" 
+                        VerticalOptions="FillAndExpand"
+                        Margin="0,0,0,90">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="{Binding Role, Converter={StaticResource RoleToColorConverter}}"
+                                       Padding="10"
+                                       CornerRadius="15"
+                                       HorizontalOptions="{Binding Role, Converter={StaticResource RoleToPositionConverter}}"
+                                       VerticalOptions="Start"
+                                       Margin="5">
+                                    <Label Text="{Binding Content}" LineBreakMode="WordWrap" />
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <!-- Message Input -->
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="2"
+                                 Spacing="2"
+                                 VerticalOptions="End"
+                                 BackgroundColor="DarkGray"
+                                 HeightRequest="50">
+                        <Entry Text="{Binding UserRequest}" 
+                                Placeholder="Type a message..." 
+                                TextColor="{DynamicResource LabelTextColor}"
+                                HorizontalOptions="FillAndExpand" />
+
+                        <!-- 🎤 Mic Button -->
+                        <Button Text="🎤" 
+                                Clicked="OnStartSpeechToText"
+                                BackgroundColor="Green"
+                                TextColor="White"
+                                WidthRequest="50"
+                                HeightRequest="50"
+                                CornerRadius="25" />
+
+                        <!-- Send Button -->
+                        <Button Text="Get Jobbs Reply" 
+                                Command="{Binding SendMessageCommand}" 
+                                BackgroundColor="Green" 
+                                TextColor="White" 
+                                CornerRadius="15" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <Label/>
+            <!-- Info Section Below Chat -->
+            <StackLayout Spacing="15" Padding="0">
+                <!-- Top Section (Image + Description) -->
+                <Grid ColumnDefinitions="1*, 2*" ColumnSpacing="10">
+                    <Image Source="bing_shot4.png"
+                           HeightRequest="300"
+                           WidthRequest="1000"
+                           Aspect="AspectFit"
+                           Grid.Column="0" />
+                    <Label Text="What is Jobbs Chat?&#10;&#10;Jobbs Chat is an innovative AI dating assistant designed to revolutionize your love life.This intelligent platform offers personalized advice, clever conversation starters, and expert relationship tips to boost your dating confidence. Whether you're new to dating or looking to enhance your skills, Jobbs Chat is your go-to online companion for romantic success."
+                           Style="{StaticResource BodyLabelStyle}"
+                           Grid.Column="1"
+                           HorizontalOptions="Center"
+                           TextColor="{DynamicResource LabelTextColor}"
+                           LineBreakMode="WordWrap"
+                           FontSize="14"/>
+
+                </Grid>
+
+                <VerticalStackLayout Spacing="15">
+                        <Label Text="Unlock Your Dating Potential with Jobbs AI Chat"
+                                Style="{StaticResource SectionHeaderStyle}"/>
+
+                        <Label Text="In the world of modern dating making meaningful connections can be challenging. That's where Jobbs AI Chat comes in, revolutionizing the way you approach relationships and communication. Let's explore why Jobbs AI Chat is your ultimate wingman in the digital dating landscape."
+                                Style="{StaticResource BodyLabelStyle}"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Why Choose Jobbs AI Chat"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Label Text="Jobbs AI Chat is more than just a chatbot it's your personal dating coach, available 24/7. Whether you're struggling with conversation starters, need advice on how to respond to a message, or want to improve your overall dating strategy, Jobbs AI Chat has got you covered. By leveraging advanced AI technology, Jobbs AI Chat provides personalized, context-aware advice that evolves with your dating journey."
+                            Style="{StaticResource BodyLabelStyle}"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Real-World Applications of Jobbs AI Chat"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Label Text="Jobbs AI Chat shines in various dating scenarios. Here are some practical applications:"
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="1. Crafting the Perfect Opening Line&#10; First impressions matter, especially in online dating. Jobbs AI Chat analyzes your match's profile and suggests tailored opening lines that are likely to spark a conversation. For instance, if your match mentions loving Italian cuisine, Jobbs AI Chat might suggest: I noticed you're a fan of Italian food. What's your go-to pasta dish? I'm always looking for new recipes to try!"
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="2. Navigating Difficult Conversations&#10; Sometimes, conversations can take an unexpected turn. Jobbs AI Chat helps you handle tricky situations with grace. For example, if you're unsure how to respond to a sensitive topic, Jobbs AI Chat can provide thoughtful and empathetic suggestions to keep the conversation flowing smoothly."
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="3. Planning the Perfect Date&#10; Once you've made a connection, Jobbs AI Chat can assist in planning memorable dates. By considering both parties' interests, Jobbs AI Chat can suggest unique date ideas that go beyond the typical dinner and movie. For a couple who both enjoy art, it might recommend: How about visiting the new interactive art exhibition at the local gallery, followed by a paint-and-sip session?"
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="4. Boosting Your Confidence&#10; Jobbs AI Chat acts as your personal cheerleader, providing encouragement and confidence-boosting tips. Before a big date, it might remind you of your best qualities and offer affirmations to help you feel your best."
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Why Jobbs AI Chat Makes You a Better Communicator"
+                                Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Label Text="Jobbs AI Chat doesn't just provide quick fixes; it helps you become a more effective communicator in the long run. Here's how:" 
+                                Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="1. Personalized Learning&#10; Jobbs AI Chat learns from your interactions, tailoring its advice to your unique personality and communication style. Over time, it helps you identify patterns in your dating behavior and suggests areas for improvement." 
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="2. Real-Time Feedback&#10; Get instant feedback on your messages before sending them. Jobbs AI Chat can analyze the tone, content, and potential impact of your messages, helping you refine your communication skills." 
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="3. Cultural Sensitivity&#10; In our diverse world, cultural awareness is crucial. Jobbs AI Chat provides insights into cultural nuances, helping you navigate cross-cultural dating scenarios with respect and understanding." 
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Success Stories: RIZZ AI Chat in Action"
+                                Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Label Text="Let's look at some real-life examples of how Jobbs AI Chat has transformed dating experiences:"
+                                Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="Case Study 1: The Shy Guy&#10; Basit, an introverted software developer, always struggled with starting conversations on dating apps. With Jobbs AI Chat's help, he learned to craft engaging opening messages that reflected his genuine interests. Within a month, his match rate increased by 70%, and he's now in a promising relationship with a fellow tech enthusiast."
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="Case Study 2: The Second-Chance Romance&#10; Sarah matched with her high school crush after 10 years. Nervous about rekindling the connection, she turned to Jobbs AI Chat for advice. Jobbs AI Chat helped her strike the perfect balance between nostalgia and fresh conversation topics. They're now planning their third date!"
+                            Style="{StaticResource BodyLabelStyle}"/>
+                    <Label Text="Case Study 3: The Long-Distance Duo&#10; Khalil and Angel were struggling to maintain their long-distance relationship. Jobbs AI Chat suggested creative virtual date ideas and provided conversation starters to keep their connection strong. Six months later, they credit Jobbs AI Chat for helping them stay close despite the miles between them."
+                            Style="{StaticResource BodyLabelStyle}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Embrace the Future of Dating with RIZZ AI Chat"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Label Text="In a world where digital connections are increasingly important, Jobbs AI Chat stands out as an invaluable tool for anyone looking to improve their dating life. By providing personalized advice, boosting confidence, and offering real-time communication tips, Jobbs AI Chat empowers you to put your best foot forward in the dating world. Remember, Jobbs AI Chat isn't about changing who you are; it's about enhancing your natural charm and helping you connect more effectively. Whether you're new to the dating scene or looking to revitalize your love life, Jobbs AI Chat is your trusted companion on the journey to meaningful connections.Ready to transform your dating experience? Give Jobbs AI Chat a try today and unlock your true dating potential"
+                        Style="{StaticResource BodyLabelStyle}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Frequently QA About Jobbs AI Chat With Manual text"
+                        Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Label Text="The following are some common usage questions about Jobbs AI. If you can't find what you're looking for, please contact our email"
+                        Style="{StaticResource BodyLabelStyle}"/>
+
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Q:How does Jobbs AI Chat differ from other dating advice apps"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+                    <Label Text="A: Jobbs AI Chat stands out by offering personalized, AI-powered advice that adapts to your unique dating style and needs. Unlike generic dating apps, Jobbs AI Chat learns from your interactions, providing tailored suggestions for opening lines, conversation topics, and even date ideas. It's like having a 24/7 dating coach in your pocket, offering real-time guidance to help you navigate the complexities of modern dating."
+                            Style="{StaticResource BodyLabelStyle}"/>
+
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Q: Can Jobbs AI Chat help me if I'm not very confident in dating situations?"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+                    <Label Text="A: RAbsolutely! Jobbs AI Chat is designed to boost your confidence in dating scenarios. It provides encouragement, helps you identify your strengths, and offers strategies to overcome common dating anxieties. Whether you're struggling with initiating conversations or feeling nervous about a first date, Jobbs AI Chat can provide supportive advice and practical tips to help you feel more self-assured. Remember, the goal is to enhance your natural charm, not change who you are."
+                            Style="{StaticResource BodyLabelStyle}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Q: Is my personal information safe when using RIZZ AI Chat?"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+                    <Label Text="A: At Jobbs AI, we take your privacy very seriously. Jobbs AI Chat is designed with strong privacy measures in place. Your personal conversations and data are encrypted and never shared with third parties. The AI learns from your interactions to provide better advice, but this is done in a way that protects your individual privacy. You can use Jobbs AI Chat with confidence, knowing that your dating life remains your own business."
+                            Style="{StaticResource BodyLabelStyle}"/>
+
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Q: Can Jobbs AI Chat help me in long-term relationships?"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+                    <Label Text="A: While Jobbs AI Chat is excellent for navigating the early stages of dating, it's also a valuable tool for those in long-term relationships. It can help you keep the spark alive by suggesting new date ideas, providing conversation starters for deeper discussions, and offering advice on how to handle relationship challenges. Whether you're looking to reignite the romance or navigate a rough patch, Jobbs AI Chat can provide insights and strategies to strengthen your long-term relationship."
+                            Style="{StaticResource BodyLabelStyle}"/>
+                </VerticalStackLayout>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Q: How often should I use Jobbs AI Chat for the best results?"
+                            Style="{StaticResource SectionHeaderStyle}"/>
+
+                    <Label Text="A: The frequency of using Jobbs AI Chat depends on your individual needs and dating situation. Some users find it helpful to consult Jobbs AI Chat before and after each date or significant interaction, while others use it more sporadically for specific advice. The key is to use it as a supportive tool rather than a crutch. Aim to strike a balance between getting helpful advice and developing your own intuition and skills. Remember, Jobbs AI Chat is designed to empower you in your dating journey, not to replace genuine human interaction."
+                        Style="{StaticResource BodyLabelStyle}"/>
+
+                </VerticalStackLayout>
+
+                <Label Text="Contact Information: iqbalullahj@gmail.com"
+                       FontAttributes="Italic"
+                       TextColor="DarkBlue"
+                       HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalClhProject.Views.MainPage"
+             Title="JobbsAI"
+             BackgroundColor="{DynamicResource PageBackgroundBrush}">
+        
+        <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Start">
+
+            <!-- Top-left buttons -->
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                <Button Text="Sign Up"
+                    FontSize="18"
+                    CornerRadius="12"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    WidthRequest="100"
+                    Clicked="OnSignupClicked"
+                    HorizontalOptions="End" />
+
+                <Button Text="{Binding LoginButtonText}"
+                        FontSize="18"
+                        CornerRadius="12"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        WidthRequest="100"
+                        Command="{Binding LoginOrLogoutCommand}"
+                        HorizontalOptions="End" />
+
+            </HorizontalStackLayout>
+
+            <Label Text="FinalClhProj AI Assistant: Free Jobbs GPT and Fun AI Dating Assistant"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <Label Text="Jobbs GPT makes every encounter both easy and meaningful."
+                       FontSize="18"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Frame BackgroundColor="#6200EE" Padding="15" CornerRadius="15" HasShadow="False" WidthRequest="200">
+                        <StackLayout>
+                            <Label 
+                                Text="Dating Openers" 
+                                TextColor="White" 
+                                HorizontalTextAlignment="Center"
+                                FontAttributes="Bold" 
+                                FontSize="Medium"/>
+                            <Label 
+                                Text="Use Jobbs AI to start your business easily and increase your friend's reply rate" 
+                                TextColor="White" 
+                                HorizontalTextAlignment="Center"
+                                FontSize="Small"
+                                LineBreakMode="WordWrap"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame BackgroundColor="#6200EE" Padding="15" CornerRadius="15" HasShadow="False" WidthRequest="200">
+                        <StackLayout>
+                            <Label 
+                                Text="Natural IRL Intros" 
+                                TextColor="White" 
+                                HorizontalTextAlignment="Center"
+                                FontAttributes="Bold" 
+                                FontSize="Medium"/>
+                            <Label 
+                                Text="How to introduce yourself naturally? Don’t worry, Jobbs GPT understands human well" 
+                                TextColor="White" 
+                                HorizontalTextAlignment="Center"
+                                FontSize="Small"
+                                LineBreakMode="WordWrap"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame BackgroundColor="#6200EE" Padding="15" CornerRadius="15" HasShadow="False" WidthRequest="200">
+                        <StackLayout>
+                            <Label 
+                                Text="Message Replies" 
+                                TextColor="White" 
+                                HorizontalTextAlignment="Center"
+                                FontAttributes="Bold" 
+                                FontSize="Medium"/>
+                            <Label 
+                                Text="Jobbs AI quickly helps you reply based on the chat history, which is fun and not boring" 
+                                TextColor="White" 
+                                HorizontalTextAlignment="Center"
+                                FontSize="Small"
+                                LineBreakMode="WordWrap"/>
+                        </StackLayout>
+                    </Frame>
+                </HorizontalStackLayout>
+
+                <Label Text="Why we need an Jobbs AI dating assistant?"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+            <Grid ColumnDefinitions="1*, 2*" RowDefinitions="Auto, Auto" ColumnSpacing="10" RowSpacing="10">
+
+                <!-- Image (spans both rows in column 0) -->
+                <Image Source="bing_shot5.png"
+                       HeightRequest="300"
+                       WidthRequest="1000"
+                       Aspect="AspectFit"
+                       Grid.Column="0"
+                       Grid.RowSpan="2" />
+
+                <!-- First label (row 0) -->
+                <Label Text="🌟 Want to impress your crush effortlessly? Our AI dating GPT, trained on countless successful dating cases, offers proven chat techniques tailored to your unique personality. Whether you're shy or outgoing, you'll quickly master the art of flirting and make incredible strides in your dating life! 💕"
+                       FontSize="14"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       LineBreakMode="WordWrap"
+                       TextColor="{DynamicResource LabelTextColor}" 
+                       HorizontalOptions="Center" />
+
+                <!-- Second label (row 1) -->
+                <Label Text="🔐 Worried about privacy? Don't be! Jobbs AI never saves your chat records or screenshots. Share your dating stories freely with our AI coach and receive honest advice without compromising your privacy. With this trustworthy dating assistant, you can fully enjoy the exciting journey of love! 💖"
+                       FontSize="14"
+                       Grid.Column="1"
+                       Grid.Row="1"
+                       LineBreakMode="WordWrap"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+            </Grid>
+
+
+            <Label Text="Comments about Jobbs AI Assistant"
+                    FontSize="24"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    TextColor="{DynamicResource LabelTextColor}" />
+            <ScrollView Orientation="Horizontal" HorizontalOptions="Center">
+                    <HorizontalStackLayout Spacing="30" Padding="20" HorizontalOptions="Center">
+
+                        <Frame BorderColor="{DynamicResource LabelTextColor}"
+                               CornerRadius="12"
+                               Padding="10"
+                               WidthRequest="180"
+                               HeightRequest="230"
+                               HasShadow="True"
+                               BackgroundColor="White"
+                               HorizontalOptions="Center">
+                            <VerticalStackLayout HorizontalOptions="Center">
+                                <Image Source="bing_shot1.jpeg"
+                                   HeightRequest="110"
+                                   WidthRequest="160"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Center" />
+                            <Label Text="Feb, 15th 2024 John Miller Jobbs AI's personalized advice helped me gain confidence and improve my communication skills Thanks to Jobbs AI, I'm now in a happy, fulfilling relationship!"
+                                   FontSize="12"
+                                   TextColor="Orange"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="5,10,5,0" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame BorderColor="{DynamicResource LabelTextColor}"
+                               CornerRadius="12"
+                               Padding="10"
+                               WidthRequest="180"
+                               HeightRequest="230"
+                               HasShadow="True"
+                               BackgroundColor="White"
+                               HorizontalOptions="Center">
+                            <VerticalStackLayout HorizontalOptions="Center">
+                                <Image Source="bing_shot2.jpeg"
+                                   HeightRequest="110"
+                                   WidthRequest="160"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Center" />
+                            <Label Text="May, 11th 2024 Emily Davis As someone who's always been shy, Jobbs GPT taught me how to initiate engaging conversations and build genuine connections. It's like having a supportive best friend!"
+                                   FontSize="12"
+                                   TextColor="Orange"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="5,10,5,0" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame BorderColor="{DynamicResource LabelTextColor}"
+                               CornerRadius="12"
+                               Padding="10"
+                               WidthRequest="180"
+                               HeightRequest="230"
+                               HasShadow="True"
+                               BackgroundColor="White"
+                               HorizontalOptions="Center">
+                            <VerticalStackLayout HorizontalOptions="Center">
+                                <Image Source="bing_shot3.jpeg"
+                                   HeightRequest="110"
+                                   WidthRequest="160"
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Center" />
+                            <Label Text="May, 15th 2024 Sophia Thompson Jobbs GPT is not just a dating coach; it's a tool for personal growth. It improved my dating life and communication skills while maintaining my privacy"
+                                   FontSize="12"
+                                   TextColor="Orange"
+                                   HorizontalTextAlignment="Center"
+                                   Margin="5,10,5,0" />
+                            </VerticalStackLayout>
+                        </Frame>
+
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <Label Text="Frequently QA About Jobbs AI Assistant And AI Dating"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+            <Label Text="Find answers to our most commonly asked questions below. If you can't find what you're looking for, please contact our customer support team."
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <Label Text="Q: What is Jobbs AI and how does it revolutionize AI dating?"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+            <Label Text="A: Jobbs AI is a cutting-edge artificial intelligence platform specifically designed for enhancing dating experiences  By leveraging advanced language models similar to Jobbs GPT, Jobbs AI revolutionizes AI dating by providing personalized conversation starters, flirting tips, and relationship advice. This innovative tool helps users navigate the complex world of modern dating with confidence and charm."
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <Label Text="Q: How does Jobbs GPT differ from other AI chatbots in the realm of AI dating?"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+            <Label Text="A: Jobbs GPT sets itself apart in the AI dating landscape by offering a unique blend of natural language processing and emotional intelligence Unlike generic chatbots, Jobbs GPT is specifically trained on dating scenarios, allowing it to understand nuanced social cues and provide context-appropriate responses. This specialized focus makes Jobbs AI powered by Jobbs GPT an invaluable asset for those looking to improve their dating skills and build meaningful connections."
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <Label Text="Q: Can Jobbs AI help improve my dating profile and online presence?"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+            <Label Text="A: Absolutely! Jobbs AI is equipped with advanced algorithms that analyze successful dating profiles and online interactions. By utilizing Jobbs AI, you can receive tailored suggestions to optimize your dating profile, select the most appealing photos, and craft engaging bios. The AI dating assistant can also provide real-time feedback on your online conversations, helping you maintain interesting and flirtatious exchanges that are more likely to lead to successful matches."
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <Label Text="Q: How does Jobbs AI ensure privacy and security in the context of AI dating?"
+                       FontAttributes="Bold"
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+            <Label Text="A: Privacy and security are top priorities for Jobbs AI. The platform employs state-of-the-art encryption methods to protect user dataand conversations. Unlike some AI dating tools, Jobbs AI and Jobbs GPT do not store personal information or chat logs beyond the necessary processing time. The AI is designed to provide advice and assistance without compromising user privacy, making it a trusted companion in the digital dating world."
+                       FontSize="16"
+                       HorizontalOptions="Start"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+                <Label Text="Contact Information"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+                <Label Text="iqbalullahj@gmail.com"
+                       FontSize="16"
+                       HorizontalOptions="Center"
+                       TextColor="{DynamicResource LabelTextColor}" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+</ContentPage>

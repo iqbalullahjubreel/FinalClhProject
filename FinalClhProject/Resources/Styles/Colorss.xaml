@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="FinalClhProject.Resources.Styles.Colorss">
+
+    <!-- Color Definitions -->
+    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="Secondary">#DFD8F7</Color>
+    <Color x:Key="White">White</Color>
+    <Color x:Key="LabelTextColor">#000000</Color>
+    <Color x:Key="Gray200">#EEEEEE</Color>
+    <Color x:Key="PageBackgroundBrush">#FFFFFF</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="PageBackground">#FFFFFF</Color>
+    <Color x:Key="EntryBackgroundColor">#EEEEEE</Color>
+    <Color x:Key="EntryTextColor">#000000</Color>
+    <Color x:Key="EntryPlaceholderColor">#666666</Color>
+    <Color x:Key="ButtonBackgroundColor">#512BD4</Color>
+    <Color x:Key="ButtonTextColor">#FFFFFF</Color>
+    <Color x:Key="EntryBorderColor">#CCCCCC</Color>
+
+    <!-- SolidColorBrush Definitions for UI Elements -->
+    <SolidColorBrush x:Key="EntryBorderBrush" Color="{StaticResource EntryBorderColor}" />
+    <SolidColorBrush x:Key="EntryBackgroundBrush" Color="{StaticResource EntryBackgroundColor}" />
+    <SolidColorBrush x:Key="EntryTextBrush" Color="{StaticResource EntryTextColor}" />
+    <SolidColorBrush x:Key="EntryPlaceholderBrush" Color="{StaticResource EntryPlaceholderColor}" />
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{StaticResource ButtonBackgroundColor}" />
+    <SolidColorBrush x:Key="ButtonTextBrush" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}" />
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}" />
+    <SolidColorBrush x:Key="PageBackgroundBrushBrush" Color="{StaticResource PageBackgroundBrush}" />
+
+    <!-- Label Styles -->
+    <Style x:Key="HeaderLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+    </Style>
+
+    <Style x:Key="SubheaderLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+    </Style>
+
+    <Style x:Key="BodyLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource EntryPlaceholderColor}" />
+    </Style>
+
+    <Style x:Key="SectionHeaderStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Italic" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+    </Style>
+
+    <Style x:Key="QuestionLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Italic" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+    </Style>
+
+    <Style x:Key="AnswerLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource EntryPlaceholderColor}" />
+    </Style>
+
+    <!-- Button Styles -->
+    <Style x:Key="PrimaryButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource ButtonBackgroundColor}" />
+        <Setter Property="TextColor" Value="{StaticResource LabelTextColor}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="10,5"/>
+    </Style>
+
+    <!-- Frame Styles -->
+    <Style x:Key="ResponseFrameStyle" TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="#fff0f5" />
+        <Setter Property="Padding" Value="15" />
+        <Setter Property="CornerRadius" Value="15" />
+        <Setter Property="BorderColor" Value="Black" />
+        <Setter Property="HasShadow" Value="True" />
+        <Setter Property="WidthRequest" Value="350" />
+        <Setter Property="HeightRequest" Value="350" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Start" />
+    </Style>
+
+
+</ResourceDictionary>

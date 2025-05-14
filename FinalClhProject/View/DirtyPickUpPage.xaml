@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:FinalClhProject.Views"
+    x:Class="FinalClhProject.Views.DirtyPickUpPage"
+    BackgroundColor="{DynamicResource PageBackgroundBrush}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                <Button Text="Home"
+                        BackgroundColor="Blue"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnGoToHomeAsync"
+                        HorizontalOptions="End" />
+
+                <Button Text="Logout"
+                        BackgroundColor="Red"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnLogoutAsync"
+                        HorizontalOptions="End" />
+                <Button Text="Settings"
+                        BackgroundColor="Blue"
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnGoToSettingsAsync"
+                        HorizontalOptions="End" />
+            </HorizontalStackLayout>
+            
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Flirty Pick Up Lines AI Generator"
+                       Style="{StaticResource HeaderLabelStyle}"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Free Flirty Pick Up Lines AI Generator, come and experience it!"
+                       Style="{StaticResource SubheaderLabelStyle}"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="Wanna get spicy? Click the button below to generate flirty pick-up lines 😏🔥"
+                       Style="{StaticResource BodyLabelStyle}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+
+            <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+                <Button Text="Chat With Jobbs Ai Now"
+                        Style="{StaticResource PrimaryButtonStyle}" 
+                        FontAttributes="Bold"
+                        Padding="10"
+                        Clicked="OnChatWithJobbaAiClicked"
+                        HorizontalOptions="End" />
+
+                <Button Text="Generate Flirty Rizz Lines"
+                            Style="{StaticResource PrimaryButtonStyle}" 
+                            FontAttributes="Bold"
+                            Padding="10"
+                            Clicked="OnRizzLinesClicked"
+                            HorizontalOptions="End" />
+            </HorizontalStackLayout>
+            <VerticalStackLayout Spacing="15">
+                <Label Text="AI Pick-Up Lines:"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Frame
+                         BorderColor="Black"
+                         CornerRadius="15"
+                         BackgroundColor="#fff0f5"
+                         WidthRequest="350"
+                         HeightRequest="350"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Start"
+                         Padding="15"
+                         HasShadow="True">
+
+                    <ScrollView>
+                        <CollectionView ItemsSource="{Binding RizzLines}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BackgroundColor="#dc3977"
+                                            CornerRadius="12"
+                                            Padding="10"
+                                            Margin="5">
+                                        <Label Text="{Binding .}" TextColor="White" FontSize="14"/>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </ScrollView>
+                </Frame>
+
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+
+                    <Button Text="🔥 Normal Pick Up-Lines"
+                            Command="{Binding GenerateNormalLinesCommand}"
+                            Style="{StaticResource PrimaryButtonStyle}" 
+                            FontAttributes="Bold"
+                            Padding="10"/>
+
+                    <Button Text="🔥 Flirty Pick Up-Lines"
+                            Command="{Binding GenerateDirtyLinesCommand}"
+                            Style="{StaticResource PrimaryButtonStyle}" 
+                            FontAttributes="Bold"
+                            Padding="10"/>
+
+                </HorizontalStackLayout>
+                
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="💌 What is Flirty Pick Up Lines AI Generator?"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="The Flirty Pick Up Lines AI Generator is an innovative tool within Jobbs AI's dating assistance platform. It uses artificial intelligence to create flirtatious and mildly risqué conversation starters. This free tool helps users break the ice with potential romantic interests by generating witty, customized, and slightly daring pick-up lines instantly. While it's designed to boost confidence and spark engaging conversations, users should always exercise discretion and respect when applying these lines in real-life situations."
+                       Style="{StaticResource BodyLabelStyle}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Unleash Your Charm with Flirty Pick Up Lines AI Generator"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Are you tired of awkward silences and missed opportunities in the dating world? Look no further! Our Flirty Pick Up Lines AI Generator is here to spice up your love life and boost your confidence. Whether you're a seasoned player or a shy newcomer, our tool will equip you with the perfect icebreakers for any situation."
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Why Choose Our Flirty Pick Up Lines AI Generator?"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="In today's fast-paced dating scene, making a memorable first impression is crucial. Our AI-powered generator creates unique witty, and slightly risqué pick-up lines tailored to your specific needs. Here's why you should give it a try:&#x0a;&#x0a;• Instant creativity boost&#x0a;• Customized to your personality and situation&#x0a;• Constantly updated with fresh, trendy content&#x0a;• Helps overcome approach anxiety&#x0a;• Adds humor and excitement to your interactions"
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Perfect Scenarios for Using Flirty Pick Up Lines"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Our Flirty Pick Up Lines AI Generator is versatile and can be your secret weapon in various dating scenarios:&#x0a;&#x0a;• Breaking the ice on dating apps&#x0a;• Approaching someone at a bar or club&#x0a;• Spicing up conversations with your long-term partner&#x0a;• Adding humor to social gatherings&#x0a;• Practicing your flirting skills in a safe environment"
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="How Our Flirty Pick Up Lines Enhance Your Dating Game"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Using our AI-generated Flirty pick up lines can significantly improve your dating experiences:&#x0a;&#x0a;• Boost Confidence: Armed with clever lines, you'll feel more self-assured in approaching potential partners.&#x0a;• Break the Ice: Our Flirty pick up lines serve as perfect conversation starters, eliminating awkward silences.&#x0a;• Showcase Humor: Demonstrate your wit and sense of humor, key attractive traits in the dating world.&#x0a;• Stand Out: In a sea of generic openers, our unique Flirty pick up lines will make you memorable.&#x0a;• Practice Makes Perfect: Use our generator to hone your flirting skills in a risk-free environment."
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Real-World Success with Our Flirty Pick Up Lines"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Don't just take our word for it! Here are some real examples of Flirty pick up lines that have worked wonders for our users:&#x0a;&#x0a;• Are you a parking ticket? Because you've got 'FINE' written all over you.&#x0a;• Is your name Google? Because you've got everything I've been searching for.&#x0a;• Do you believe in love at first sight, or should I walk by again?&#x0a;• Are you a magician? Because when I look at you, everyone else disappears.&#x0a;• Is your name Wi-Fi? Because I'm really feeling a connection.&#x0a;&#x0a;Remember, the key to successfully using Flirty pick up lines is confidence and reading the room. Our AI generator provides the ammunition, but it's up to you to deliver with charm and respect."
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="How to Make the Most of Our Flirty Pick Up Lines AI Generator"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="To maximize your success with our tool, follow these tips:&#x0a;&#x0a;• Customize: Use the generator's options to tailor lines to your specific situation and personality.&#x0a;• Practice: Try out different lines and delivery styles to find what works best for you.&#x0a;• Be Confident: Deliver your chosen line with self-assurance and a smile.&#x0a;• Read the Room: Always be respectful and aware of the other person's comfort level.&#x0a;• Have a Follow-Up: Be prepared to continue the conversation beyond the initial line."
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Start Your Journey to Dating Success Today!"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="Ready to revolutionize your dating game? Our Flirty Pick Up Lines AI Generator is just a click away Whether you're looking for a long-term relationship or just want to add some excitement to your social life, our tool is here to help. Don't let another opportunity slip by – try our generator now and watch your confidence soar!&#x0a;&#x0a;Remember, in the world of dating, a little humor goes a long way. With our Flirty Pick Up Lines AI Generator, you'll always have the perfect words to make that crucial first impression. So why wait? Dive in and let our AI-powered charm work its magic on your love life today!"
+                       Style="{StaticResource BodyLabelStyle}"/>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Spacing="15">
+                <Label Text="Frequently Asked Questions"
+                       Style="{StaticResource SectionHeaderStyle}"/>
+
+                <Label Text="The following are some common usage questions about Jobbs AI. If you can't find what you're looking for, please contact our email."
+                       Style="{StaticResource BodyLabelStyle}"/>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Q: Is it safe to use the Flirty Pick Up Lines AI Generator in real-life situations?"
+                           Style="{StaticResource QuestionLabelStyle}"/>
+                    <Label Text="A: While our Flirty Pick Up Lines AI Generator is designed to be fun and flirtatious, it's important to use discretion when applying these lines in real-life situations. Always be respectful of others' boundaries and comfort levels. The generator provides creative ideas, but it's up to you to gauge the appropriateness for each specific situation. Remember, consent and mutual respect should always be your top priorities in any interaction."
+                           Style="{StaticResource AnswerLabelStyle}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Q: How often is the Flirty Pick Up Lines AI Generator updated with new content?"
+                           Style="{StaticResource QuestionLabelStyle}"/>
+                    <Label Text="A: We regularly update our Flirty Pick Up Lines AI Generator to ensure fresh, relevant, and trendy content. Our AI model is continuously learning from user interactions and feedback, allowing it to generate new and improved pick-up lines. Additionally, our team of dating experts periodically reviews and refines the generator's output to maintain quality and effectiveness. You can expect to see new content and variations every time you use the tool."
+                           Style="{StaticResource AnswerLabelStyle}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Q: Can I customize the Flirty Pick Up Lines for specific situations or preferences?"
+                           Style="{StaticResource QuestionLabelStyle}"/>
+                    <Label Text="A: Absolutely! Our Flirty Pick Up Lines AI Generator offers customization options to tailor the output to your specific needs. You can adjust parameters such as the level of 'dirtiness', the setting (e.g., bar, dating app, social event), and even incorporate specific interests or traits of the person you're interested in. This customization ensures that you get pick-up lines that are more relevant and effective for your unique situation."
+                           Style="{StaticResource AnswerLabelStyle}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Q: What if the Flirty Pick Up Line doesn't work? Do you have any backup strategies?"
+                           Style="{StaticResource QuestionLabelStyle}"/>
+                    <Label Text="A: While our Flirty Pick Up Lines are designed to be effective icebreakers it's important to remember that no single line guarantees success. If a line doesn't work as expected, don't be discouraged. Be prepared to transition into a normal conversation, perhaps by asking about their interests or commenting on your shared environment. Remember, the pick-up line is just an opener; your genuine personality and conversation skills are what truly matter. We also recommend having a few different lines ready, so you can choose the most appropriate one for the situation."
+                           Style="{StaticResource AnswerLabelStyle}"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="Q: Are there any tips for delivering Flirty Pick Up Lines effectively?"
+                           Style="{StaticResource QuestionLabelStyle}"/>
+                    <Label Text="A: Absolutely! Here are some tips for delivering Flirty Pick Up Lines effectively:&#x0a;&#x0a;• Confidence is key: Deliver the line with self-assurance and a smile.&#x0a;• Timing matters: Choose an appropriate moment when the other person seems open to conversation.&#x0a;• Read the room: Be aware of the other person's reaction and be ready to adjust your approach if needed.&#x0a;• Have a follow-up: Be prepared to continue the conversation beyond the initial line.&#x0a;• Use humor: These lines work best when delivered in a light-hearted, playful manner.&#x0a;• Practice: Try out different lines and delivery styles to find what works best for you.&#x0a;• Be yourself: Use the line as a starting point, but let your true personality shine through in the subsequent conversation."
+                           Style="{StaticResource AnswerLabelStyle}"/>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+
+            <Label Text="Contact Information: iqbalullahj@gmail.com"
+                   FontAttributes="Italic"
+                   TextColor="DarkBlue"
+                   HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

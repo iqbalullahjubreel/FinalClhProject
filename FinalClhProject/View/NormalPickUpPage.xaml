@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:FinalClhProject.ViewModel"
+    x:Class="FinalClhProject.Views.NormalPickUpPage"
+    Title="Normal Pick-Up Lines"
+    BackgroundColor="{DynamicResource PageBackgroundBrush}">
+
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label Text="Wanna charm at a coffee shop? ☕💬 Tap below!"
+                   FontSize="18"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+
+            <Button Text="Generate Cute Pick-Up Lines"
+                    Command="{Binding GenerateNormalLinesCommand}"
+                    BackgroundColor="#009688"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50" />
+
+            <Label Text="Generated Lines:"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   Margin="0,20,0,5" />
+
+            <ScrollView>
+                <Label Text="{Binding AiGeneratedLines}"
+                       FontSize="16"
+                       LineBreakMode="WordWrap" />
+            </ScrollView>
+
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>

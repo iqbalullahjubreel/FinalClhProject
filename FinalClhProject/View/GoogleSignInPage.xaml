@@ -1,0 +1,38 @@
+<ContentPage
+    x:Class="FinalClhProject.Views.GoogleSignInPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{DynamicResource PageBackgroundBrush}">
+
+
+    <Grid RowDefinitions="*,Auto" Padding="20">
+
+        <StackLayout 
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Spacing="30">
+
+            <Image 
+                Source="bing_shot1.jpeg" 
+                HeightRequest="100" 
+                WidthRequest="100" 
+                HorizontalOptions="Center" />
+
+            <Button 
+                Text="Sign in with Google"
+                BackgroundColor="#4285F4"
+                TextColor="{DynamicResource LabelTextColor}" 
+                CornerRadius="25"
+                HeightRequest="50"
+                WidthRequest="250"
+                FontAttributes="Bold"
+                Clicked="OnGoogleSignInButtonClicked"/>
+        </StackLayout>
+
+        <WebView 
+            x:Name="GoogleSignInWebView"
+            IsVisible="False"
+            Grid.Row="0"/>
+
+    </Grid>
+</ContentPage>

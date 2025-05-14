@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalClhProject.Views.DeleteUserPage"
+             BackgroundColor="{DynamicResource PageBackgroundBrush}"
+             Title="Delete Account">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Label Text="Are you sure you want to delete your account?"
+               FontAttributes="Bold"
+               FontSize="18"
+               HorizontalOptions="Center" />
+
+        <Button Text="❌ Delete My Account"
+                TextColor="{DynamicResource LabelTextColor}" 
+                BackgroundColor="Red"
+                Command="{Binding DeleteCommand}" />
+
+        <Label Text="{Binding StatusMessage}"
+               TextColor="{DynamicResource LabelTextColor}" 
+               FontSize="14"
+               HorizontalOptions="Center" />
+
+    </VerticalStackLayout>
+</ContentPage>

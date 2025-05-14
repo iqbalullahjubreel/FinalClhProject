@@ -1,0 +1,46 @@
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinalClhProject.Views.SpeechToTextPage"
+    BackgroundColor="{DynamicResource PageBackgroundBrush}"
+    Title="Speech to Text">
+    
+
+    <VerticalStackLayout Padding="30" Spacing="20"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Center">
+
+        <Label Text="Speech to Text"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label Text="{Binding RecognizedText}"
+               FontSize="18"
+               TextColor="DarkSlateGray"
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
+               HeightRequest="150"
+               WidthRequest="300"
+               BackgroundColor="#EFEFEF"
+               Padding="10"
+               LineBreakMode="WordWrap" />
+
+        <HorizontalStackLayout Spacing="20"
+                               HorizontalOptions="Center">
+            <Button Text="{Binding ToggleButtonText}"
+                    Command="{Binding ToggleSpeechCommand}"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="20"
+                    WidthRequest="120" />
+
+            <Button Text="Stop"
+                    Command="{Binding StopSpeechCommand}"
+                    BackgroundColor="IndianRed"
+                    TextColor="White"
+                    CornerRadius="20"
+                    WidthRequest="120" />
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

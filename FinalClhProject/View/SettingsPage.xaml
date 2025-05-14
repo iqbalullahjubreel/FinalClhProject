@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalClhProject.Views.SettingsPage"
+             Title="Settings"
+             BackgroundColor="{DynamicResource PageBackgroundBrush}">
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="Dark Mode"
+               TextColor="{DynamicResource LabelTextColor}" 
+            FontSize="20"/>
+
+            <Switch x:Name="ThemeSwitch"
+                Toggled="OnThemeToggled"/>
+
+        <HorizontalStackLayout HorizontalOptions="End" Spacing="10">
+           
+        </HorizontalStackLayout>
+        <Grid>
+            <Button Text="Edit Profile"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    Clicked="OnEditProfileClicked"
+                    HeightRequest="50" 
+                    CornerRadius="25"/>
+        </Grid> 
+        <Grid>
+            <Button Text="Logout"
+                    BackgroundColor="Blue"
+                    TextColor="White"
+                    Clicked="OnLogoutAsync"
+                    HeightRequest="50" 
+                    CornerRadius="25"/>
+        </Grid>
+    </VerticalStackLayout>
+    
+    
+</ContentPage>

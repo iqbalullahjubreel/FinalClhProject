@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:FinalClhProject.ViewModel"
+    x:Class="FinalClhProject.Views.UpdateUserPage"
+    Title="Update User Info"
+    BackgroundColor="{DynamicResource PageBackgroundBrush}">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="15">
+
+                <Label Text="Update User" FontAttributes="Bold" FontSize="24" HorizontalOptions="Center" TextColor="{DynamicResource LabelTextColor}" />
+
+                <Label Text="Id" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                          StrokeThickness="1"
+                          StrokeShape="RoundRectangle 6"
+                          BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                          Padding="8">
+                    <Entry Text="{Binding Id}"
+                            Placeholder="Enter UserId"
+                            IsPassword="True"
+                            TextColor="{DynamicResource LabelTextColor}"
+                            PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                            BackgroundColor="Transparent"
+                            HeightRequest="50" />
+                </Border>
+
+                <Label Text="FirstName" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 6"
+                        BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                        Padding="8">
+                    <Entry Text="{Binding FirstName}"
+                         Placeholder="Enter FirstName"
+                         IsPassword="False"
+                         TextColor="{DynamicResource LabelTextColor}"
+                         PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                         BackgroundColor="Transparent"
+                         HeightRequest="50" />
+                </Border>
+
+                <Label Text="LastName" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                      StrokeThickness="1"
+                      StrokeShape="RoundRectangle 6"
+                      BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                      Padding="8">
+                    <Entry Text="{Binding LastName}"
+                         Placeholder="Enter LastName"
+                         IsPassword="False"
+                         TextColor="{DynamicResource LabelTextColor}"
+                         PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                         BackgroundColor="Transparent"
+                         HeightRequest="50" />
+                </Border>
+
+                <Label Text="Email" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                         StrokeThickness="1"
+                         StrokeShape="RoundRectangle 6"
+                         BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                         Padding="8">
+                    <Entry Text="{Binding Email}"
+                            Placeholder="Enter email"
+                            Keyboard="Email"
+                            TextColor="{DynamicResource LabelTextColor}"
+                            PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                            BackgroundColor="Transparent"
+                            HeightRequest="50" />
+                </Border>
+
+                <Label Text="Password" TextColor="{DynamicResource LabelTextColor}" />
+                <Border Stroke="{DynamicResource EntryBorderColor}"
+                     StrokeThickness="1"
+                     StrokeShape="RoundRectangle 6"
+                     BackgroundColor="{DynamicResource EntryBackgroundBrush}"
+                     Padding="8">
+                    <Entry Text="{Binding Password}"
+                        Placeholder="Enter password"
+                        IsPassword="True"
+                        TextColor="{DynamicResource LabelTextColor}"
+                        PlaceholderColor="{DynamicResource EntryPlaceholderBrush}"
+                        BackgroundColor="Transparent"
+                        HeightRequest="50" />
+                </Border>
+
+                <Button Text="Update User"
+                        Command="{Binding UpdateCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50" />
+
+                <Label Text="{Binding StatusMessage}"
+                       FontSize="14"
+                       TextColor="Gray"
+                       Margin="0,20,0,0"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

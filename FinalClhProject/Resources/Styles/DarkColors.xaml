@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="FinalClhProject.Resources.Styles.DarkColors">
+    <Color x:Key="Primary">#9F7AEA</Color>
+    <Color x:Key="PrimaryDark">#7E5BEF</Color>
+    <Color x:Key="PrimaryDarkText">#EEEEEE</Color>
+    <Color x:Key="LabelTextColor">#FFFFFF</Color>
+    <Color x:Key="Gray200">#333333</Color>
+    <Color x:Key="PageBackgroundBrush">#000000</Color>
+    <Color x:Key="Secondary">#1C1C1C</Color>
+    <Color x:Key="SecondaryDarkText">#B0B0B0</Color>
+    <Color x:Key="Tertiary">#3F3F3F</Color>
+    <Color x:Key="PageBackground">#121212</Color>
+    <Color x:Key="White">#1E1E1E</Color>
+    <Color x:Key="Black">#FFFFFF</Color>
+    <Color x:Key="EntryBackgroundColor">#1E1E1E</Color>
+    <Color x:Key="EntryTextColor">#FFFFFF</Color>
+    <Color x:Key="EntryPlaceholderColor">#AAAAAA</Color>
+    <Color x:Key="ButtonBackgroundColor">#9F7AEA</Color>
+    <Color x:Key="ButtonTextColor">#000000</Color>
+    <Color x:Key="EntryBorderColor">#444444</Color>
+
+    
+    <SolidColorBrush x:Key="EntryBorderBrush" Color="{StaticResource EntryBorderColor}" />
+    <SolidColorBrush x:Key="EntryBackgroundBrush" Color="{StaticResource EntryBackgroundColor}" />
+    <SolidColorBrush x:Key="EntryTextBrush" Color="{StaticResource EntryTextColor}" />
+    <SolidColorBrush x:Key="EntryPlaceholderBrush" Color="{StaticResource EntryPlaceholderColor}" />
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="{StaticResource ButtonBackgroundColor}" />
+    <SolidColorBrush x:Key="ButtonTextBrush" Color="{StaticResource ButtonTextColor}" />
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}" />
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
+</ResourceDictionary>
